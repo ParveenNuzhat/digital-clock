@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Digital Clock</title>
+  </head>
+  <body>
+    <section class="clock-sec">
+      <h2 class="title">Digital Clock</h2>
+      <div id="clock" class="clock"></div>
+    </section>
+    <script>
+      function updateClock() {
+        var display = document.getElementById("clock");
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+
+        // Format time
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+
+        var formattedTime =
+          hours + " " + ":" + " " + minutes + " " + ":" + " " + seconds;
+        display.textContent = formattedTime;
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
+  </body>
+</html>
